@@ -11,8 +11,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Wed Oct 17 01:33:24 EDT 2012
- * XML source: /Users/Yitei/Documents/workspace/11791/hw1-yifeh/hw1-yifeih/src/main/resources/descriptors/bannerIt.xml
+ * Updated by JCasGen Wed Oct 17 12:30:58 EDT 2012
+ * XML source: /Users/Yitei/Documents/workspace/11791/hw1-yifeh/hw1-yifeih/src/main/resources/descriptors/lineType.xml
  * @generated */
 public class nounPhrases extends Annotation {
   /** @generated
@@ -61,24 +61,6 @@ public class nounPhrases extends Annotation {
   private void readObject() {/*default - does nothing empty block */}
      
  
-    
-  //*--------------*
-  //* Feature: id
-
-  /** getter for id - gets 
-   * @generated */
-  public String getId() {
-    if (nounPhrases_Type.featOkTst && ((nounPhrases_Type)jcasType).casFeat_id == null)
-      jcasType.jcas.throwFeatMissing("id", "myCpe.nounPhrases");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((nounPhrases_Type)jcasType).casFeatCode_id);}
-    
-  /** setter for id - sets  
-   * @generated */
-  public void setId(String v) {
-    if (nounPhrases_Type.featOkTst && ((nounPhrases_Type)jcasType).casFeat_id == null)
-      jcasType.jcas.throwFeatMissing("id", "myCpe.nounPhrases");
-    jcasType.ll_cas.ll_setStringValue(addr, ((nounPhrases_Type)jcasType).casFeatCode_id, v);}    
-   
     
   //*--------------*
   //* Feature: nouns

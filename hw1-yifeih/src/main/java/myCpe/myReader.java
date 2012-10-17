@@ -134,7 +134,7 @@ public class myReader extends CollectionReader_ImplBase {
       annotation.setSentence(matcher.group(2));
       annotation.addToIndexes();
     }
-    jcas.setDocumentText(allText.substring(lineBegin,lineEnd));
+    jcasline.setDocumentText(allText.substring(lineBegin,lineEnd));
 
 
   }

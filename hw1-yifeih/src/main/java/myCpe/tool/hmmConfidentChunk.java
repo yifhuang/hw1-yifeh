@@ -1,17 +1,18 @@
 package myCpe.tool;
-
 import com.aliasi.chunk.Chunk;
 import com.aliasi.chunk.ConfidenceChunker;
-
 import com.aliasi.util.AbstractExternalizable;
-
 import java.io.File;
 import java.io.IOException;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.apache.uima.resource.ResourceInitializationException;
+/**
+ *wrap function of Lingpipe hmm nlp class.
+ *input: text to tag.
+ *output: array of gene tagged arraylist with score contained
+ */
 public class hmmConfidentChunk {
     static final int MAX_N_BEST_CHUNKS = 8;
     static private File modelFile;

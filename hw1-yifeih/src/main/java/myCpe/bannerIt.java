@@ -17,7 +17,10 @@ import org.apache.uima.resource.ResourceInitializationException;
 import myCpe.tool.PosTagNamedEntityRecognizer;
 import myCpe.tool.bannerHelp;
 /**
- * Example annotator that detects room numbers using Java 1.4 regular expressions.
+ * input: nounPhrases with confidence.
+ * output: detected gene noun phrases for final out.
+ * Using Banner trained model to tag qualified sentences. And put final gene tagged phases in to 
+ * a new view "FinalNouns" to hold those annotators for the consumer 
  */
 public class bannerIt extends JCasAnnotator_ImplBase {
       static int allcount = 0;

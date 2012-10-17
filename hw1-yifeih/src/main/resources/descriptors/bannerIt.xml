@@ -32,7 +32,12 @@
 <capability>
 <inputs/>
 <outputs/>
-<languagesSupported/>
+<inputSofas>
+          <sofaName>allNouns</sofaName>
+        </inputSofas>
+        <outputSofas>
+          <sofaName>finalNouns</sofaName>
+        </outputSofas><languagesSupported/>
 </capability>
 </capabilities>
 <operationalProperties>

@@ -15,6 +15,12 @@ import org.apache.uima.resource.ResourceInitializationException;
 import banner.tagging.CRFTagger;
 import banner.tokenization.Tokenizer;
 import banner.*;
+/**
+ *wrap function of Banner class.
+ *input: text to tag.
+ *output: array of gene tagged arraylist
+ */
+
 public class bannerHelp
 {
   String propertiesFilename = "src/main/resources/data/banner.properties";

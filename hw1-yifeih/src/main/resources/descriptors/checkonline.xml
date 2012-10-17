@@ -20,7 +20,9 @@
 <capability>
 <inputs/>
 <outputs/>
-<languagesSupported/>
+<inputSofas>
+          <sofaName>allNouns</sofaName>
+        </inputSofas><languagesSupported/>
 </capability>
 </capabilities>
 <operationalProperties>

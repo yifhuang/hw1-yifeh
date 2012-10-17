@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Wed Oct 17 01:33:25 EDT 2012
+ * Updated by JCasGen Wed Oct 17 12:30:58 EDT 2012
  * @generated */
 public class nounPhrases_Type extends Annotation_Type {
   /** @generated */
@@ -43,24 +43,6 @@ public class nounPhrases_Type extends Annotation_Type {
      @modifiable */
   @SuppressWarnings ("hiding")
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("myCpe.nounPhrases");
- 
-  /** @generated */
-  final Feature casFeat_id;
-  /** @generated */
-  final int     casFeatCode_id;
-  /** @generated */ 
-  public String getId(int addr) {
-        if (featOkTst && casFeat_id == null)
-      jcas.throwFeatMissing("id", "myCpe.nounPhrases");
-    return ll_cas.ll_getStringValue(addr, casFeatCode_id);
-  }
-  /** @generated */    
-  public void setId(int addr, String v) {
-        if (featOkTst && casFeat_id == null)
-      jcas.throwFeatMissing("id", "myCpe.nounPhrases");
-    ll_cas.ll_setStringValue(addr, casFeatCode_id, v);}
-    
-  
  
   /** @generated */
   final Feature casFeat_nouns;
@@ -105,10 +87,6 @@ public class nounPhrases_Type extends Annotation_Type {
   public nounPhrases_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
-
- 
-    casFeat_id = jcas.getRequiredFeatureDE(casType, "id", "uima.cas.String", featOkTst);
-    casFeatCode_id  = (null == casFeat_id) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_id).getCode();
 
  
     casFeat_nouns = jcas.getRequiredFeatureDE(casType, "nouns", "uima.cas.String", featOkTst);

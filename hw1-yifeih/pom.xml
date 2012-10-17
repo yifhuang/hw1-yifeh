@@ -129,6 +129,11 @@
     	<artifactId>medpost</artifactId>
     	<version>0.01</version>
     </dependency>
+    <dependency>
+    	<groupId>com.aliasi</groupId>
+    	<artifactId>lingpipe</artifactId>
+    	<version>4.1.0</version>
+    </dependency>
   </dependencies>
   <scm>
   	<connection>scm:git:git@github.com:yifhuang/hw1-yifeh.git</connection>

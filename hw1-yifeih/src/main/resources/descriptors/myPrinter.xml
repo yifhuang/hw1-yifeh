@@ -53,8 +53,11 @@
 				<inputs>
 					<type allAnnotatorFeatures="true">myCpe.line</type></inputs>
 			<outputs/>
-        <languagesSupported/></capability>
+        <inputSofas>
+          <sofaName>finalNouns</sofaName>
+        </inputSofas><languagesSupported/></capability>
 		
+    
     
     
     </capabilities><operationalProperties>
@@ -63,6 +66,7 @@
 			<outputsNewCASes>false</outputsNewCASes>
 		</operationalProperties>
 	
+  
   
   
   </processingResourceMetaData></casConsumerDescription>

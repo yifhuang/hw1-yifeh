@@ -27,7 +27,11 @@ import myCpe.tool.hmmChunk;
 import myCpe.tool.hmmConfidentChunk;
 import myCpe.tool.webCheck;
 /**
- * Example annotator that detects room numbers using Java 1.4 regular expressions.
+ * input: nounPhrases with confidence.
+ * output: nounPhrases with rescored confidence
+ * This model will check the confidence of candidate gene nounPhrases from "allNouns" view
+ * If the confidence is lower than <code>lower</code> then we will recheck it onilone
+ * and give it a new confidence.(for now the new confidence will be the threhold in next component )
  */
 public class checkonline extends JCasAnnotator_ImplBase {
   //private Pattern mYorktownPattern = Pattern.compile("[P](\\d)*\\s");

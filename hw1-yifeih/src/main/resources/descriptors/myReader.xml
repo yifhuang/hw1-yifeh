@@ -79,8 +79,11 @@
     <capabilities><capability>
           		<inputs/>
           		<outputs/>
-          	<languagesSupported/></capability>
+          	<outputSofas>
+          <sofaName>freshLine</sofaName>
+        </outputSofas><languagesSupported/></capability>
         
+    
     
     
     
@@ -95,6 +98,7 @@
 			<outputsNewCASes>true</outputsNewCASes>
 		</operationalProperties>		
     
+  
   
   
   

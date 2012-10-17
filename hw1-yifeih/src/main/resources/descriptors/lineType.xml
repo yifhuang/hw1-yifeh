@@ -31,11 +31,6 @@
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
         <featureDescription>
-          <name>id</name>
-          <description/>
-          <rangeTypeName>uima.cas.String</rangeTypeName>
-        </featureDescription>
-        <featureDescription>
           <name>nouns</name>
           <description/>
           <rangeTypeName>uima.cas.String</rangeTypeName>

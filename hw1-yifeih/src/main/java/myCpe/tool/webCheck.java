@@ -3,6 +3,11 @@ package myCpe.tool;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+/**
+ *wrap function of network checking.
+ *input: phrase to search in onlione database
+ *output: the input phrase is contained or not in data
+ */
 public class webCheck {
 
    public boolean  check(String text) throws IOException

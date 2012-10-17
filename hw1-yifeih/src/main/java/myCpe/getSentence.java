@@ -16,7 +16,11 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import myCpe.tool.hmmConfidentChunk;
 /**
- * Example annotator that detects room numbers using Java 1.4 regular expressions.
+ * input: freshLine view. 
+ * output: nounPhrases with rescored confidence in a new view,"allNouns"
+ * This model will use Lingpipe hmm model to give confidence to phrases in the sentence
+ * If the confidence is higher than some threhold, it will be added into "allNouns" views.
+ *
  */
 public class getSentence extends JCasAnnotator_ImplBase {
   //private Pattern mYorktownPattern = Pattern.compile("[P](\\d)*\\s");
@@ -92,7 +96,6 @@ public class getSentence extends JCasAnnotator_ImplBase {
         nouns.setNouns(docText.substring(start, end));
         nouns.setBegin(start-spaceBeforeAt[start]);
         nouns.setEnd(end-1-spaceBeforeAt[end-1]);
-        nouns.setId(annot.getStringValue(ID));
         nouns.setConfidence(conf);
         nouns.addToIndexes(); 
       }  

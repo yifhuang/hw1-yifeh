@@ -20,18 +20,17 @@ import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
 
 /**
- * An example of CAS Consumer. <br>
- * AnnotationPrinter prints to an output file all annotations in the CAS. <br>
- * Parameters needed by the AnnotationPrinter are
+ * This is a simple consumer.<br>
+ * Input: "finalNouns" view
+ * output: file.
  * <ol>
  * <li> "outputFile" : file to which the output files should be written.</li>
  * </ol>
  * <br>
  * These parameters are set in the initialize method to the values specified in the descriptor file.
  * <br>
- * These may also be set by the application by using the setConfigParameterValue methods.
- * 
- * 
+ * This component reads the id from freshLine view and read the final GENE tag result from final view
+ * and output the in to supposed ouput file
  */
 
 public class myPrinter extends CasConsumer_ImplBase implements CasObjectProcessor {
