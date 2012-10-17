@@ -8,8 +8,20 @@
 <description/>
 <version>1.0</version>
 <vendor/>
-<configurationParameters/>
-<configurationParameterSettings/>
+<configurationParameters>
+      <configurationParameter>
+        <name>hmmPath</name>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter></configurationParameters>
+<configurationParameterSettings>
+      <nameValuePair>
+        <name>hmmPath</name>
+        <value>
+          <string>src//main//resources//data//ne-en-bio-genetag.HmmChunker</string>
+        </value>
+      </nameValuePair></configurationParameterSettings>
 <typeSystemDescription>
       <imports>
         <import name="descriptors.lineType"/></imports></typeSystemDescription>
@@ -20,7 +32,12 @@
 <inputs/>
 <outputs>
           <type allAnnotatorFeatures="true">myCpe.line</type></outputs>
-<languagesSupported/>
+<inputSofas>
+          <sofaName>freshLine</sofaName>
+        </inputSofas>
+        <outputSofas><sofaName>allNouns</sofaName>
+        
+        </outputSofas><languagesSupported/>
 </capability>
 </capabilities>
 <operationalProperties>

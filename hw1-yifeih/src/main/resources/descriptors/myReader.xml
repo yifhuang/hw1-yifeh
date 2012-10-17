@@ -63,13 +63,16 @@
 		<nameValuePair>
         <name>InputDirectory</name>
         <value>
-          <string>/Users/Yitei/Documents/workspace/11791/hw1-yifeih/src/main/resources/data/sample.in</string>
+          <string>src//main//resources//data//hw1.in</string>
         </value>
       </nameValuePair></configurationParameterSettings>
 
         <!-- Type System of CASes returned by this Collection Reader -->
 
-        <typeSystemDescription/>
+        <typeSystemDescription>
+      <imports>
+        <import location="lineType.xml"/>
+      </imports></typeSystemDescription>
 
         <typePriorities/>
     <fsIndexCollection/>
@@ -82,12 +85,20 @@
     
     
     
+    
+    
+    
+    
     </capabilities><operationalProperties>
 			<modifiesCas>true</modifiesCas>
 			<multipleDeploymentAllowed>false</multipleDeploymentAllowed>
 			<outputsNewCASes>true</outputsNewCASes>
 		</operationalProperties>		
     
+  
+  
+  
+  
   
   
   

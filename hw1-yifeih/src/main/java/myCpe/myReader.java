@@ -2,6 +2,8 @@ package myCpe;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
@@ -51,17 +53,14 @@ public class myReader extends CollectionReader_ImplBase {
   public static final String PARAM_SUBDIR = "BrowseSubdirectories";
   
   private ArrayList<File> mFiles;
-
   private String mEncoding;
-
-  private String mLanguage;
-  
+  private String mLanguage;  
   private Boolean mRecursive;
-
   private int mCurrentIndex;
   private int lineBegin;
   private int lineEnd;
   private String allText;
+  private Pattern oneLine = Pattern.compile("([^ ]*)[ ](.*)");
 
   /**
    * @see org.apache.uima.collection.CollectionReader_ImplBase#initialize()
@@ -75,36 +74,19 @@ public class myReader extends CollectionReader_ImplBase {
       mRecursive = Boolean.FALSE;
     }
     mCurrentIndex = 0;
-
-    // if input directory does not exist or is not a directory, throw exception
     if (!inFile.exists()) {
       throw new ResourceInitializationException(ResourceConfigurationException.DIRECTORY_NOT_FOUND,
               new Object[] { PARAM_INPUTFILE, this.getMetaData().getName(), inFile.getPath() });
     }
-
-    // get list of files in the specified directory, and subdirectories if the
-    // parameter PARAM_SUBDIR is set to True
-    //mFiles = new ArrayList<File>();
     try {
       allText = FileUtils.file2String(inFile, mEncoding);
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       throw new ResourceInitializationException(e);
     }
     lineBegin = 0;
     lineEnd = -1;
-    //mFiles.add(inFile);
-    //addFilesFromDir(directory);
   }
   
-  /**
-   * This method adds files in the directory passed in as a parameter to mFiles.
-   * If mRecursive is true, it will include all files in all
-   * subdirectories (recursively), as well. 
-   * 
-   * @param dir
-   */
-
 
   /**
    * @see org.apache.uima.collection.CollectionReader#hasNext()
@@ -129,13 +111,22 @@ public class myReader extends CollectionReader_ImplBase {
     if(lineEnd==-1)
       lineEnd = 0;
     lineEnd = allText.indexOf("\n", lineBegin);
-    //System.out.println("start:"+lineBegin);
-    //System.out.println("end:"+lineEnd);
-    // open input stream to file
-    //File file = (File) mFiles.get(mCurrentIndex++);
-    //String text = FileUtils.file2String(file, mEncoding);
-      // put document in CAS
-    //System.out.println(allText.substring(lineBegin,lineEnd));
+    JCas jcasline;
+    try {
+      jcasline = jcas.createView("freshLine");
+    } catch (CASException e) {
+      throw new CollectionException(e);
+    }
+    Matcher matcher = oneLine.matcher(allText.substring(lineBegin,lineEnd));
+    while (matcher.find()) {
+      line annotation = new line(jcasline);
+      nounPhrases nouns = null;
+      annotation.setBegin(matcher.start(2));
+      annotation.setEnd(matcher.end(2));
+      annotation.setId(matcher.group(1));
+      annotation.setSentence(matcher.group(2));
+      annotation.addToIndexes();
+    }
     jcas.setDocumentText(allText.substring(lineBegin,lineEnd));
 
 

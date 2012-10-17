@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Sat Oct 13 21:35:57 EDT 2012
+ * Updated by JCasGen Wed Oct 17 01:33:25 EDT 2012
  * @generated */
 public class nounPhrases_Type extends Annotation_Type {
   /** @generated */
@@ -79,6 +79,24 @@ public class nounPhrases_Type extends Annotation_Type {
     ll_cas.ll_setStringValue(addr, casFeatCode_nouns, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_confidence;
+  /** @generated */
+  final int     casFeatCode_confidence;
+  /** @generated */ 
+  public double getConfidence(int addr) {
+        if (featOkTst && casFeat_confidence == null)
+      jcas.throwFeatMissing("confidence", "myCpe.nounPhrases");
+    return ll_cas.ll_getDoubleValue(addr, casFeatCode_confidence);
+  }
+  /** @generated */    
+  public void setConfidence(int addr, double v) {
+        if (featOkTst && casFeat_confidence == null)
+      jcas.throwFeatMissing("confidence", "myCpe.nounPhrases");
+    ll_cas.ll_setDoubleValue(addr, casFeatCode_confidence, v);}
+    
+  
 
 
 
@@ -95,6 +113,10 @@ public class nounPhrases_Type extends Annotation_Type {
  
     casFeat_nouns = jcas.getRequiredFeatureDE(casType, "nouns", "uima.cas.String", featOkTst);
     casFeatCode_nouns  = (null == casFeat_nouns) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_nouns).getCode();
+
+ 
+    casFeat_confidence = jcas.getRequiredFeatureDE(casType, "confidence", "uima.cas.Double", featOkTst);
+    casFeatCode_confidence  = (null == casFeat_confidence) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_confidence).getCode();
 
   }
 }

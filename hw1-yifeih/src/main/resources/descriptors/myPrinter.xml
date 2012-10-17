@@ -39,7 +39,7 @@
 			<nameValuePair>
 				<name>outputFile</name>
 				<value>
-					<string>output/annotprint/annotations.txt</string>
+					<string>src//main//resources//data//hw1-yifeih.out</string>
 				</value>
 			</nameValuePair>
 		</configurationParameterSettings>
@@ -56,11 +56,13 @@
         <languagesSupported/></capability>
 		
     
+    
     </capabilities><operationalProperties>
 			<modifiesCas>false</modifiesCas>
 			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
 			<outputsNewCASes>false</outputsNewCASes>
 		</operationalProperties>
 	
+  
   
   </processingResourceMetaData></casConsumerDescription>

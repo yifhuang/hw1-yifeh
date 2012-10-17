@@ -4,20 +4,20 @@ package myCpe;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
-
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
+import org.apache.uima.cas.FSIndex;
+import org.apache.uima.cas.FSIterator;
+import org.apache.uima.cas.Feature;
+import org.apache.uima.cas.Type;
+import org.apache.uima.cas.text.AnnotationFS;
 import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.collection.base_cpm.CasObjectProcessor;
-import myCpe.line; 
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceConfigurationException;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.resource.ResourceProcessException;
 import org.apache.uima.util.ProcessTrace;
-import myCpe.nounPhrases;
 
 /**
  * An example of CAS Consumer. <br>
@@ -93,54 +93,61 @@ public class myPrinter extends CasConsumer_ImplBase implements CasObjectProcesso
     } catch (CASException e) {
       throw new ResourceProcessException(e);
     }
+
+    JCas theView = null;
+    try {
+      theView =jcas.getView("freshLine");
+    } catch (CASException e1) {
+      // TODO Auto-generated catch block
+      e1.printStackTrace();
+    }
     
-    boolean titleP = false;
-    String docUri = null;
-    String tmp = null;
-    Iterator it = jcas.getAnnotationIndex(nounPhrases.type).iterator();
-    while(it.hasNext()){
+    Type cross = theView.getTypeSystem().getType("myCpe.line");
+    FSIndex anIndex = theView.getAnnotationIndex(cross);
+    FSIterator anIter = anIndex.iterator();
+    AnnotationFS annot = null;
+    Feature ID = cross.getFeatureByBaseName("id");
+    String id = null;
+    if (anIter.isValid()) {
+      annot = (AnnotationFS) anIter.get();
+      //System.out.println(" " + annot.getType().getName() + ": " );
+      id = annot.getFeatureValueAsString(ID);
+
+      //System.out.println(annot.getFeatureValueAsString(other));
+      //anIter.moveToNext();
+    }
+    
+    try {
+      theView =jcas.getView("FinalNouns");
+    } catch (CASException e1) {
+      // TODO Auto-generated catch block
+      e1.printStackTrace();
+    }
+    cross = theView.getTypeSystem().getType("myCpe.nounPhrases");
+    anIndex = theView.getAnnotationIndex(cross);
+    anIter = anIndex.iterator();
+    Feature NOUNS = cross.getFeatureByBaseName("nouns");
+    Feature BEGIN = cross.getFeatureByBaseName("begin");
+    Feature END = cross.getFeatureByBaseName("end");
+    String nouns = null;
+    int begin = 0,end = 0;
+    while (anIter.isValid()) {
+      annot = (AnnotationFS) anIter.get();
+      //System.out.println(" " + annot.getType().getName() + ": " );
+      nouns = annot.getFeatureValueAsString(NOUNS);
+      begin = annot.getIntValue(BEGIN);
+      end = annot.getIntValue(END);
       try{
-        nounPhrases info = (nounPhrases) it.next();
-        tmp = info.getNouns();
-        fileWriter.write(info.getId()+"|"+info.getBegin()+" "+info.getEnd()+"|"+tmp+"\n");
+        //System.out.println(id+"|"+begin+" "+end+"|"+nouns);
+        fileWriter.write(id+"|"+begin+" "+end+"|"+nouns+"\n");
         fileWriter.flush();
       }catch (IOException e) {
         throw new ResourceProcessException(e);
       }
-
+      anIter.moveToNext();
     }
-    /*if (it.hasNext()) {
-      line srcDocInfo = (line) it.next();
-      docUri = srcDocInfo.getId();
-    }
+    
 
-    // iterate and print annotations
-    Iterator annotationIter = jcas.getAnnotationIndex().iterator();
-    while (annotationIter.hasNext()) {
-      Annotation annot = (Annotation) annotationIter.next();
-      if (titleP == false) {
-        try {
-          fileWriter.write("\n\n<++++NEW DOCUMENT++++>\n");
-          if (docUri != null)
-            fileWriter.write("DOCUMENT URI:" + docUri + "\n");
-          fileWriter.write("\n");
-        } catch (IOException e) {
-          throw new ResourceProcessException(e);
-        }
-        titleP = true;
-      }
-      // get the text that is enclosed within the annotation in the CAS
-      String aText = annot.getCoveredText();
-      aText = aText.replace('\n', ' ');
-      aText = aText.replace('\r', ' ');
-      // System.out.println( annot.getType().getName() + " "+aText);
-      try {
-        fileWriter.write(annot.getType().getName() + " " + aText + "\n");
-        fileWriter.flush();
-      } catch (IOException e) {
-        throw new ResourceProcessException(e);
-      }
-    }*/
   }
 
   /**

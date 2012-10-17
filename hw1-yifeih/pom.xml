@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.cmu.lti.11791.f12.hw1</groupId>
   <artifactId>hw1-yifeih</artifactId>
-  <version>0.2.9</version>
+  <version>0.2.9-SNAPSHOT</version>
   <repositories>
     <repository>
       <id>oaqa</id>
@@ -107,6 +107,26 @@
     <dependency>
     	<groupId>dragon</groupId>
     	<artifactId>dragontool</artifactId>
+    	<version>0.01</version>
+    </dependency>
+    <dependency>
+    	<groupId>heptag</groupId>
+    	<artifactId>heptag</artifactId>
+    	<version>0.01</version>
+    </dependency>
+    <dependency>
+    	<groupId>junit-4.4</groupId>
+    	<artifactId>junit-4.4</artifactId>
+    	<version>0.01</version>
+    </dependency>
+    <dependency>
+    	<groupId>mallet</groupId>
+    	<artifactId>mallet</artifactId>
+    	<version>0.02</version>
+    </dependency>
+    <dependency>
+    	<groupId>medpost</groupId>
+    	<artifactId>medpost</artifactId>
     	<version>0.01</version>
     </dependency>
   </dependencies>

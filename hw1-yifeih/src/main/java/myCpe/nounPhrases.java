@@ -11,8 +11,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Sat Oct 13 21:35:57 EDT 2012
- * XML source: /Users/Yitei/Documents/workspace/11791/hw1-yifeih/src/main/resources/descriptors/lineType.xml
+ * Updated by JCasGen Wed Oct 17 01:33:24 EDT 2012
+ * XML source: /Users/Yitei/Documents/workspace/11791/hw1-yifeh/hw1-yifeih/src/main/resources/descriptors/bannerIt.xml
  * @generated */
 public class nounPhrases extends Annotation {
   /** @generated
@@ -96,6 +96,24 @@ public class nounPhrases extends Annotation {
     if (nounPhrases_Type.featOkTst && ((nounPhrases_Type)jcasType).casFeat_nouns == null)
       jcasType.jcas.throwFeatMissing("nouns", "myCpe.nounPhrases");
     jcasType.ll_cas.ll_setStringValue(addr, ((nounPhrases_Type)jcasType).casFeatCode_nouns, v);}    
+   
+    
+  //*--------------*
+  //* Feature: confidence
+
+  /** getter for confidence - gets confidence that this word is gene related words
+   * @generated */
+  public double getConfidence() {
+    if (nounPhrases_Type.featOkTst && ((nounPhrases_Type)jcasType).casFeat_confidence == null)
+      jcasType.jcas.throwFeatMissing("confidence", "myCpe.nounPhrases");
+    return jcasType.ll_cas.ll_getDoubleValue(addr, ((nounPhrases_Type)jcasType).casFeatCode_confidence);}
+    
+  /** setter for confidence - sets confidence that this word is gene related words 
+   * @generated */
+  public void setConfidence(double v) {
+    if (nounPhrases_Type.featOkTst && ((nounPhrases_Type)jcasType).casFeat_confidence == null)
+      jcasType.jcas.throwFeatMissing("confidence", "myCpe.nounPhrases");
+    jcasType.ll_cas.ll_setDoubleValue(addr, ((nounPhrases_Type)jcasType).casFeatCode_confidence, v);}    
   }
 
     

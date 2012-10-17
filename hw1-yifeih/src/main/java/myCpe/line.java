@@ -11,8 +11,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Sat Oct 13 21:35:57 EDT 2012
- * XML source: /Users/Yitei/Documents/workspace/11791/hw1-yifeih/src/main/resources/descriptors/lineType.xml
+ * Updated by JCasGen Wed Oct 17 01:33:24 EDT 2012
+ * XML source: /Users/Yitei/Documents/workspace/11791/hw1-yifeh/hw1-yifeih/src/main/resources/descriptors/bannerIt.xml
  * @generated */
 public class line extends Annotation {
   /** @generated
@@ -96,6 +96,24 @@ public class line extends Annotation {
     if (line_Type.featOkTst && ((line_Type)jcasType).casFeat_sentence == null)
       jcasType.jcas.throwFeatMissing("sentence", "myCpe.line");
     jcasType.ll_cas.ll_setStringValue(addr, ((line_Type)jcasType).casFeatCode_sentence, v);}    
+   
+    
+  //*--------------*
+  //* Feature: score
+
+  /** getter for score - gets score of the sentence. The higher the more possible it will have contain gene words.
+   * @generated */
+  public double getScore() {
+    if (line_Type.featOkTst && ((line_Type)jcasType).casFeat_score == null)
+      jcasType.jcas.throwFeatMissing("score", "myCpe.line");
+    return jcasType.ll_cas.ll_getDoubleValue(addr, ((line_Type)jcasType).casFeatCode_score);}
+    
+  /** setter for score - sets score of the sentence. The higher the more possible it will have contain gene words. 
+   * @generated */
+  public void setScore(double v) {
+    if (line_Type.featOkTst && ((line_Type)jcasType).casFeat_score == null)
+      jcasType.jcas.throwFeatMissing("score", "myCpe.line");
+    jcasType.ll_cas.ll_setDoubleValue(addr, ((line_Type)jcasType).casFeatCode_score, v);}    
   }
 
     

@@ -5,7 +5,7 @@ import java.net.*;
 import java.util.*;
 public class webCheck {
 
-   boolean  check(String text) throws IOException
+   public boolean  check(String text) throws IOException
    { 
      if(text.indexOf("%")!=-1||text.indexOf("\"")!=-1)
        return false;
