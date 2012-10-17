@@ -20,7 +20,8 @@ import myCpe.tool.bannerHelp;
  * Example annotator that detects room numbers using Java 1.4 regular expressions.
  */
 public class bannerIt extends JCasAnnotator_ImplBase {
-      static int allconut = 0;
+      static int allcount = 0;
+      static int partcount = 0;
 
   /**
    * @throws AnalysisEngineProcessException 
@@ -28,7 +29,7 @@ public class bannerIt extends JCasAnnotator_ImplBase {
    */
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     
-    System.out.println(allconut++);
+    allcount++;
     Map<Integer, Integer> tmpMap = null;
     JCas lineView = null;
     try {
@@ -76,6 +77,7 @@ public class bannerIt extends JCasAnnotator_ImplBase {
       throw new AnalysisEngineProcessException(e);
     }
     if(score>0.5){
+        partcount++;
         bannerHelp myBanner = null;
         try {
           myBanner = new bannerHelp((String)getContext().getConfigParameterValue("bannerPath"));
@@ -120,6 +122,7 @@ public class bannerIt extends JCasAnnotator_ImplBase {
           nouns.addToIndexes(); 
         }  
       }
+    System.out.println(partcount+"/"+allcount);
     }
   }
 

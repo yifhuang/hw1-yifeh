@@ -5,8 +5,6 @@
  */
 
 package myCpe.tool;
-
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,7 +23,7 @@ public class bannerHelp
   static CRFTagger tagger = null;
   public bannerHelp(String text) throws ResourceInitializationException,Exception {
     if(tagger==null){
-      System.out.println("inti banner");
+      System.out.println("inti banner...");
       String modelFilename = text; // model.bin
       properties = BannerProperties.load(propertiesFilename);
       tokenizer = properties.getTokenizer();
@@ -51,8 +49,6 @@ public class bannerHelp
             spaceBefore++;
         }
         //look for space end
-            
-            
         Map<Integer, Integer> begin2end = new HashMap<Integer, Integer>();
             
         if (text.length() > 0)

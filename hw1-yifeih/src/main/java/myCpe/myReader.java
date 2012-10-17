@@ -17,14 +17,16 @@ import org.apache.uima.util.Progress;
 import org.apache.uima.util.ProgressImpl;
 
 /**
- * A simple collection reader that reads documents from a directory in the filesystem. It can be
- * configured with the following parameters:
+ * This simple collection reader file line by line and paring them into id and sentence body.
  * <ul>
+ * 1) reads input file from directory. It can be configured with the following parameters:
  * <li><code>InputDirectory</code> - path to directory containing files</li>
  * <li><code>Encoding</code> (optional) - character encoding of the input files</li>
  * <li><code>Language</code> (optional) - language of the input documents</li>
+ * 2) Chuck the file into sentence for CAS holding
+ * 3) Chuck each sentence into id and sentence and save them into a new annotation: @see myCpe.line
+ * 4) Create a new view "freshLine" holding all the annotations
  * </ul>
- * 
  * 
  */
 public class myReader extends CollectionReader_ImplBase {
@@ -60,6 +62,9 @@ public class myReader extends CollectionReader_ImplBase {
   private int lineBegin;
   private int lineEnd;
   private String allText;
+  /**
+      parsing regex for one line
+   */
   private Pattern oneLine = Pattern.compile("([^ ]*)[ ](.*)");
 
   /**
@@ -89,6 +94,7 @@ public class myReader extends CollectionReader_ImplBase {
   
 
   /**
+   * Ends when there is no more sentence in file
    * @see org.apache.uima.collection.CollectionReader#hasNext()
    */
   public boolean hasNext() {
@@ -98,6 +104,7 @@ public class myReader extends CollectionReader_ImplBase {
   }
 
   /**
+   * Parsing each sentence into <code>line</code>: id + sentences; put into <code>freshLine</code> view
    * @see org.apache.uima.collection.CollectionReader#getNext(org.apache.uima.cas.CAS)
    */
   public void getNext(CAS aCAS) throws IOException, CollectionException {
@@ -143,16 +150,6 @@ public class myReader extends CollectionReader_ImplBase {
    */
   public Progress[] getProgress() {
     return new Progress[] { new ProgressImpl(mCurrentIndex, 1, Progress.ENTITIES) };
-  }
-
-  /**
-   * Gets the total number of documents that will be returned by this collection reader. This is not
-   * part of the general collection reader interface.
-   * 
-   * @return the number of documents in the collection
-   */
-  public int getNumberOfDocuments() {
-    return mFiles.size();
   }
 
 }

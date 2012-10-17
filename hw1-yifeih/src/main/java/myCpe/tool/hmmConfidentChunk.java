@@ -1,11 +1,9 @@
 package myCpe.tool;
 
 import com.aliasi.chunk.Chunk;
-import com.aliasi.chunk.Chunker;
 import com.aliasi.chunk.ConfidenceChunker;
 
 import com.aliasi.util.AbstractExternalizable;
-import com.aliasi.util.Strings;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,10 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.resource.ResourceInitializationException;
-import myCpe.tool.webCheck;
 public class hmmConfidentChunk {
     static final int MAX_N_BEST_CHUNKS = 8;
     static private File modelFile;
