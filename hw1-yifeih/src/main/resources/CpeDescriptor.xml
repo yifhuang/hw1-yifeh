@@ -4,14 +4,14 @@
     <collectionReader>
         <collectionIterator>
             <descriptor>
-                <import location="../resources/descriptors/myReader.xml"/>
+                <import location="../descriptors/myReader.xml"/>
             </descriptor>
         </collectionIterator>
     </collectionReader>
     <casProcessors casPoolSize="3" processingUnitThreadCount="1">
     <casProcessor deployment="integrated" name="Aggregate TAE - Name Recognizer and Person Title Annotator">
         <descriptor>
-            <import location="../resources/descriptors/getSentence.xml"/>
+            <import location="../descriptors/getSentence.xml"/>
         </descriptor>
             <deploymentParameters/>
         <errorHandling>
@@ -23,7 +23,7 @@
     </casProcessor>
     <casProcessor deployment="integrated" name="OnlineCheck">
             <descriptor>
-                <import location="../resources/descriptors/checkonline.xml"/>
+                <import location="../descriptors/checkonline.xml"/>
             </descriptor>
             <deploymentParameters/>
             <errorHandling>
@@ -35,7 +35,7 @@
     </casProcessor>
         <casProcessor deployment="integrated" name="bannering">
             <descriptor>
-                <import location="../resources/descriptors/bannerIt.xml"/>
+                <import location="../descriptors/bannerIt.xml"/>
             </descriptor>
             <deploymentParameters/>
             <errorHandling>
@@ -47,7 +47,7 @@
     </casProcessor>
     <casProcessor deployment="integrated" name="Xmi Writer CAS Consumer">
         <descriptor>
-            <import location="../resources/descriptors/myPrinter.xml"/>
+            <import location="../descriptors/myPrinter.xml"/>
         </descriptor>
             <deploymentParameters/>
         <errorHandling>
