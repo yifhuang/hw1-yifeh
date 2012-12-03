@@ -23,7 +23,7 @@ import banner.*;
 
 public class bannerHelp
 {
-  String propertiesFilename = "src/main/resources/data/banner.properties";
+  String propertiesFilename = "data/banner.properties";
   static BannerProperties properties;
   static Tokenizer tokenizer;
   static CRFTagger tagger = null;
