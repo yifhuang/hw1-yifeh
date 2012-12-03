@@ -19,7 +19,7 @@
       <nameValuePair>
         <name>bannerPath</name>
         <value>
-          <string>src//main//resources//data//gene_model_v02.bin</string>
+          <string>data//gene_model_v02.bin</string>
         </value>
       </nameValuePair></configurationParameterSettings>
 <typeSystemDescription>
