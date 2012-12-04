@@ -63,7 +63,7 @@
 		<nameValuePair>
         <name>InputDirectory</name>
         <value>
-          <string>data//hw1.in</string>
+          <string>hw1.in</string>
         </value>
       </nameValuePair></configurationParameterSettings>
 
@@ -93,12 +93,14 @@
     
     
     
+    
     </capabilities><operationalProperties>
 			<modifiesCas>true</modifiesCas>
 			<multipleDeploymentAllowed>false</multipleDeploymentAllowed>
 			<outputsNewCASes>true</outputsNewCASes>
 		</operationalProperties>		
     
+  
   
   
   

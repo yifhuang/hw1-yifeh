@@ -39,7 +39,7 @@
 			<nameValuePair>
 				<name>outputFile</name>
 				<value>
-					<string>data//hw1-yifeih.out</string>
+					<string>hw1-yifeih.out</string>
 				</value>
 			</nameValuePair>
 		</configurationParameterSettings>
@@ -61,12 +61,14 @@
     
     
     
+    
     </capabilities><operationalProperties>
 			<modifiesCas>false</modifiesCas>
 			<multipleDeploymentAllowed>true</multipleDeploymentAllowed>
 			<outputsNewCASes>false</outputsNewCASes>
 		</operationalProperties>
 	
+  
   
   
   
